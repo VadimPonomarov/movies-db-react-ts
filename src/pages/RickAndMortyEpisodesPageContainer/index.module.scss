@@ -12,6 +12,7 @@
 
 .Ep__Card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 10px;
@@ -65,4 +66,18 @@
   max-height: 40px;
   justify-content: center;
   align-items: center;
+}
+
+.pie {
+  display: inline-block;
+  margin: .5em;
+  width: 8em;
+  height: 8em;
+  position: relative;
+  border-radius: 50%;
+}
+
+.p4 {
+  background-image: linear-gradient(270deg, transparent 100%, steelblue 50%),
+  linear-gradient(180deg, #ddd 50%, steelblue 50%);
 }

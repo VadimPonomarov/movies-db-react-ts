@@ -6,9 +6,10 @@ import {motion} from "framer-motion";
 import moment from "moment";
 import {useNavigate} from "react-router-dom";
 
+import {BadgeWithCircular} from "../../components/BadgeWithCircularContainer";
+
 import css from "./index.module.scss";
 import {ICardProps} from "./interfaces";
-
 
 const EpisodesCard: FC<ICardProps> = ({props}) => {
     const {episode: {name, air_date, characters, created}} = props;
@@ -23,9 +24,9 @@ const EpisodesCard: FC<ICardProps> = ({props}) => {
     return (
         <motion.span
             initial={{height: 0}}
-            animate={{height: "auto", rotateX:360, rotateZ:360}}
+            animate={{height: "auto", rotateX: 360, rotateZ: 360}}
             exit={{height: 0}}
-            transition={{duration: 5, delay: Math.random()*2}}
+            transition={{duration: 5, delay: Math.random() * 2}}
         >
             <Card className={css.Ep__Card}>
                 <Button className={css.Ep__Card_Button} onClick={() => handleOnClick()}>
@@ -45,9 +46,11 @@ const EpisodesCard: FC<ICardProps> = ({props}) => {
                         </Box>
                     </Box>
                 </Button>
+                <BadgeWithCircular/>
             </Card>
         </motion.span>
-    );
+    )
+        ;
 };
 
 export {EpisodesCard};

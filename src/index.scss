@@ -7,3 +7,45 @@
 * {
   font-family: Roboto, 'Courier New', Courier, monospace;
 }
+
+.pie {
+  display: inline-block;
+  margin: .5em;
+  width: 4em;
+  height: 4em;
+  position: relative;
+  border-radius: 50%;
+}
+
+.pie:after {
+  border-radius: 50%;
+  display: block;
+  content: "";
+  background: #fff;
+  position: absolute;
+  left: .5em;
+  top: .5em;
+  height: 3em;
+  width: 3em;
+}
+
+
+
+.p1 {
+  background-image: linear-gradient(-30deg, #ddd 50%, transparent 50%),
+  linear-gradient(90deg, #ddd 50%, steelblue 50%);
+}
+
+.p2 {
+  background-image: linear-gradient(90deg, #ddd 50%, steelblue 50%);
+}
+
+.p3 {
+  background-image: linear-gradient(150deg, transparent 50%, steelblue 50%),
+  linear-gradient(90deg, #ddd 50%, steelblue 50%);
+}
+
+.p4 {
+  background-image: linear-gradient(270deg, transparent 50%, steelblue 50%),
+  linear-gradient(180deg, #ddd 50%, steelblue 50%);
+}
