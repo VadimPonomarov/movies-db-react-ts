@@ -27,7 +27,7 @@ const MyToolbarMenu: FC<IProps> = ({props}) => {
             <MyToolBarMenuItem props={{caption: "Register", onClick: handleRegister}}/>
             <MyToolBarMenuItem props={{caption: "Login", onClick: handleLogin}}/>
             <MyToolBarMenuItem props={{caption: "Logout", onClick: handleLogout}}/>
-            <MyToolBarMenuItem props={{caption: "Clear store", onClick: handleLogout}}/>
+            <MyToolBarMenuItem props={{caption: "Clear store", onClick: handleClearStore}}/>
         </Menu>
     );
 };

@@ -15,7 +15,7 @@ const AuthRequired: FC<IProps> = ({children}) => {
     useEffect(() => {
         const isRegistered = getCredentials();
         if (!isRegistered) navigate("/registration");
-    }, [navigate]);
+    }, [navigate, isAuth]);
 
     if (!isAuth) return <Navigate to="/login"/>;
 

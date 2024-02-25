@@ -1,13 +1,12 @@
 import {
     BaseTextFieldProps,
 } from "@mui/material/TextField/TextField";
-import {string} from "yup";
 
 import {formSchema} from "./formSchema";
 
 export interface IFormFields<T> {
     [key: string]: {
-        props?: { [key in keyof T]?: string };
+        props?: { [key in keyof T]?: string | boolean };
     };
 }
 

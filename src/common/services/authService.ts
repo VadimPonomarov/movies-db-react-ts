@@ -18,8 +18,13 @@ const clearCredentials = (): void => {
 };
 
 const isAuthWithCredentials = (data: IAuthCredentials): boolean => {
-    const {name, password} = getCredentials();
-    return data.name === name && Md5.hashStr(data.password) === password;
+    const credentials = getCredentials();
+    if (credentials) {
+        const {name, password} = credentials;
+        return data.name === name && Md5.hashStr(data.password) === password;
+    }
+    return false;
+
 };
 
 export {storeCredentials, getCredentials, clearCredentials, isAuthWithCredentials};

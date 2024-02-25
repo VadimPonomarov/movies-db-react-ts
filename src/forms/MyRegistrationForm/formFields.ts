@@ -21,7 +21,8 @@ const formFields: IFormFields<FormTextFieldProps> = {
     token: {
         props: {
             variant: "standard",
-            multiline: "true"
+            multiline: true,
+            maxRows: "10"
         }
     }
 };

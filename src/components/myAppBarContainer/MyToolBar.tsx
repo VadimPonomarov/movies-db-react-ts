@@ -7,12 +7,16 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import {AuthContext} from "common/hocs";
 
+import {getCredentials} from "../../common/services";
+
 import {iconButtonMenuProps} from "./constants";
 import css from "./myAppBar.module.scss";
 import {MyToolbarMenu} from "./MyToolbarMenu";
+import {UseAppToolBar} from "./useAppToolBar";
 
 
 const MyToolBar: FC = () => {
+    const {registered} = UseAppToolBar();
     const {theme, setTheme} = useContext(AuthContext);
     const [anchorEl, setAnchorEl] =
         React.useState<null | HTMLElement>(null);
@@ -37,7 +41,7 @@ const MyToolBar: FC = () => {
                     aria-haspopup="true"
                     onClick={handleMenu}
                 >
-                    <AccountCircle/>
+                    {!!getCredentials() && <AccountCircle/>}
                 </IconButton>
                 <MyToolbarMenu
                     props={{anchorEl, setAnchorEl}}
