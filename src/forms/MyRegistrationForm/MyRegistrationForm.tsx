@@ -1,5 +1,5 @@
 import * as React from "react";
-import {FC, useContext} from "react";
+import {FC, memo, useContext} from "react";
 
 
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -11,28 +11,29 @@ import {FormProvider, useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 import {v4} from "uuid";
 
+import {storeCredentials} from "../../common/services";
+
 import {FormField} from "./FormField";
 import {formFields} from "./formFields";
 import {formSchema} from "./formSchema";
-import {formInputType, IProps} from "./formTypes";
+import {formInputType, IAuthCredentials, IProps} from "./formTypes";
 import css from "./index.module.scss";
 
 
-const MyRegistrationForm: FC<IProps> = ({props}) => {
+const MyRegistrationForm_: FC<IProps> = ({props}) => {
     const {formLabel = "Form", animate = true} = props;
     const [maxWidth] = useContainerWidthResponsive({});
-    const {setIsAuth} = useContext(AuthContext)
-    const navigate = useNavigate()
+    const {setIsAuth} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const {...methods} =
         useForm<formInputType | unknown>({
             resolver: yupResolver(formSchema),
             mode: "onBlur"
         });
-    const onSubmit = (data: formInputType) => {
-        console.log(data)
-        setIsAuth(true)
-        navigate("/")
+    const onSubmit = (data: IAuthCredentials) => {
+        storeCredentials(data);
+        navigate("/login");
     };
 
 
@@ -72,4 +73,4 @@ const MyRegistrationForm: FC<IProps> = ({props}) => {
     );
 };
 
-export {MyRegistrationForm}
+export const MyRegistrationForm = memo(MyRegistrationForm_);

@@ -1,32 +1,21 @@
-import React, {FC, useContext} from 'react';
+import React, {FC, useContext} from "react";
 
 import Menu from "@mui/material/Menu";
-import { AuthContext } from 'common/hocs/authContextProvider';
-import { useNavigate } from 'react-router-dom';
+import {AuthContext} from "common/hocs/authContextProvider";
+import {useNavigate} from "react-router-dom";
+
+import {clearCredentials} from "../../common/services";
 
 import {menuProps} from "./constants";
 import {IMenuProps as IProps} from "./interfaces";
 import {MyToolBarMenuItem} from "./MyToolBarMenuItem";
+import {UseAppMenuHandlers} from "./useAppMenuHandlers";
 
 const MyToolbarMenu: FC<IProps> = ({props}) => {
-    const {anchorEl, setAnchorEl} = props
+    const {anchorEl, setAnchorEl} = props;
 
-    const navigate = useNavigate()
-    const {setIsAuth} = useContext(AuthContext)
-
-    const handleRegister = () => {
-        setAnchorEl(null);
-        navigate("/registration")
-
-    };
-    const handleLogin = () => {
-        setAnchorEl(null);
-        navigate("/login")
-    };
-    const handleLogout = () => {
-        setAnchorEl(null);
-        setIsAuth(false)
-    };
+    const {handleRegister, handleLogin, handleLogout, handleClearStore} =
+        UseAppMenuHandlers({setAnchorEl});
 
     return (
         <Menu
@@ -38,6 +27,7 @@ const MyToolbarMenu: FC<IProps> = ({props}) => {
             <MyToolBarMenuItem props={{caption: "Register", onClick: handleRegister}}/>
             <MyToolBarMenuItem props={{caption: "Login", onClick: handleLogin}}/>
             <MyToolBarMenuItem props={{caption: "Logout", onClick: handleLogout}}/>
+            <MyToolBarMenuItem props={{caption: "Clear store", onClick: handleLogout}}/>
         </Menu>
     );
 };

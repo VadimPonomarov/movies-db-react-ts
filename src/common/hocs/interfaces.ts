@@ -1,12 +1,16 @@
-import React, {ReactNode} from "react";
+import {Dispatch, ReactNode, SetStateAction} from "react";
 
 export interface IAuthContext {
     isAuth: boolean,
-    setIsAuth: React.Dispatch<React.SetStateAction<boolean>>
+    isInit: boolean,
+    setIsInit: Dispatch<SetStateAction<boolean>>
+    isDrawer: boolean,
+    setIsDrawer: Dispatch<SetStateAction<boolean>>
+    setIsAuth: Dispatch<SetStateAction<boolean>>
     theme: "light" | "dark",
-    setTheme: React.Dispatch<React.SetStateAction<"light" | "dark">>
+    setTheme: Dispatch<SetStateAction<"light" | "dark">>
 }
 
 export interface IProps {
-    children?: ReactNode
+    children?: ReactNode;
 }

@@ -11,6 +11,7 @@
 }
 
 .Ep__Card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,9 +56,19 @@
 
 .Ep__BG_Box {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
   width: 100vw;
   top: 0;
   z-index: 1000;
+}
+
+.Ep__BG_Box_Box {
+  position: fixed;
+  top: 70px;
+  width: 20%;
 }
 
 .Ep__BG_Box_Container {

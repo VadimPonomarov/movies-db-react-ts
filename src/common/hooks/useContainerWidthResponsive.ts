@@ -1,20 +1,16 @@
-import {useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 
-import {useEffectOnce} from "usehooks-ts";
+import {myFormBreakPoints} from "../constants";
+import {MyBreakPointsType, MyBreakPointType} from "../types";
 
-import {myFormBreakPoints} from "../constants/myFormBreakPoints";
-import {MyBreakPointsType, MyBreakPointType} from "../types/myFormTypes";
-
-type IProps = {
-    breakPoints?: MyBreakPointsType;
-};
+import {IProps} from "./interfaces";
 
 const useContainerWidthResponsive = (props: IProps) => {
     const [value, setValue] = useState<MyBreakPointType>();
     const {breakPoints} = props;
     const [breakpoints] = useState({...myFormBreakPoints, ...breakPoints});
 
-    const handleMaxWidth = () => {
+    const handleMaxWidth = useCallback(() => {
         const width = window.innerWidth;
 
         Object.keys(breakpoints).forEach(item => {
@@ -30,19 +26,17 @@ const useContainerWidthResponsive = (props: IProps) => {
                     setValue(breakpoints.xl);
                 }
             }
-        )
-    };
+        );
+    }, [breakpoints]);
 
-    useEffectOnce(() => {
+    useEffect(() => {
         handleMaxWidth();
-    });
-
-    useEffectOnce(() => {
         window.addEventListener("resize", handleMaxWidth);
         return () => {
             window.removeEventListener("resize", handleMaxWidth);
         };
-    });
+    }, [handleMaxWidth]);
+
 
     return [value];
 };

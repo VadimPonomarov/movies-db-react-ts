@@ -1,14 +1,14 @@
 import * as React from "react";
 
-import {MyRegistrationForm} from "../../forms";
+import { Box } from "@mui/material";
 
-import styles from "./index.module.scss";
+import {MyRegistrationForm} from "../../forms";
 
 const RegistrationPage = () => {
     return (
-        <div className={styles.registrationPage}>
+        <Box>
             <MyRegistrationForm props={{formLabel: "Registration Form"}}/>
-        </div>
+        </Box>
     );
 };
 

@@ -1,7 +1,7 @@
 import {FormTextFieldProps, IFormFields} from "./formTypes";
 
 const formFields: IFormFields<FormTextFieldProps> = {
-    email: {
+    name: {
         props: {
             variant: "standard",
         },
@@ -18,6 +18,12 @@ const formFields: IFormFields<FormTextFieldProps> = {
             type: "password"
         },
     },
+    token: {
+        props: {
+            variant: "standard",
+            multiline: "true"
+        }
+    }
 };
 
-export {formFields}
+export {formFields};

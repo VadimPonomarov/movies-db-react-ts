@@ -5,7 +5,8 @@ export const iconButtonMenuProps: Partial<IconButtonProps> = {
     size: "large",
     edge: "start",
     color: "inherit",
-    sx: {mr: 2}
+    sx: {mr: 2, zIndex: 1001},
+
 }
 export const menuProps: Partial<MenuProps> = {
     anchorOrigin: {

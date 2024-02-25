@@ -1,7 +1,7 @@
 import {FormTextFieldProps, IFormFields} from "./formTypes";
 
 const formFields: IFormFields<FormTextFieldProps> = {
-    email: {
+    name: {
         props: {
             variant: "standard",
         },

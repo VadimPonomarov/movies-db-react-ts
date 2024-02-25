@@ -1,15 +1,16 @@
 import * as React from "react";
 import {FC} from "react";
 
+import {Box} from "@mui/material";
+
 import {LoginForm} from "../../forms";
 
-import styles from "./index.module.scss";
 
 const LoginPage: FC = () => {
     return (
-        <div className={styles.loginPage}>
+        <Box>
             <LoginForm props={{formLabel: "Login Form"}}/>
-        </div>
+        </Box>
     );
 };
 

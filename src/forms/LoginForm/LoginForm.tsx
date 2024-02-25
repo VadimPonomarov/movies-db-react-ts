@@ -1,5 +1,5 @@
 import * as React from "react";
-import {FC, useContext} from "react";
+import {FC, memo, useContext} from "react";
 
 
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -11,6 +11,9 @@ import {FormProvider, useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 import {v4} from "uuid";
 
+import {isAuthWithCredentials} from "../../common/services";
+import {IAuthCredentials} from "../MyRegistrationForm/formTypes";
+
 import {FormField} from "./FormField";
 import {formFields} from "./formFields";
 import {formSchema} from "./formSchema";
@@ -18,22 +21,22 @@ import {formInputType, IProps} from "./formTypes";
 import css from "./index.module.scss";
 
 
-const LoginForm: FC<IProps> = ({props}) => {
+const LoginForm_: FC<IProps> = ({props}) => {
     const {formLabel = "Form", animate = true} = props;
     const [maxWidth] = useContainerWidthResponsive({});
-    const {setIsAuth} = useContext(AuthContext)
-    const navigate = useNavigate()
+    const {setIsAuth} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const {...methods} =
         useForm<formInputType | unknown>({
             resolver: yupResolver(formSchema),
             mode: "onBlur"
         });
-    const onSubmit = (data: formInputType) => {
-        setIsAuth(true)
-        navigate("/")
+    const onSubmit = (data: IAuthCredentials) => {
+        const isAuth = isAuthWithCredentials(data);
+        isAuth ? setIsAuth(true) : navigate("/");
+        navigate("/");
     };
-
 
     return (
         <FormProvider {...methods}>
@@ -71,4 +74,4 @@ const LoginForm: FC<IProps> = ({props}) => {
     );
 };
 
-export {LoginForm}
+export const LoginForm = memo(LoginForm_);

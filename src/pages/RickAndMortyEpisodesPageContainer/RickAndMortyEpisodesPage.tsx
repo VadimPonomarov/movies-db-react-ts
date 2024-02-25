@@ -25,17 +25,16 @@ const RickAndMortyEpisodesPage: FC = () => {
     };
 
     return (
-        <Box>
+        <>
             <EpisodesButtonGroup props={{info, prevPage, nextPage}}/>
-
             <Box className={css.Ep__Container}>
-                {results.length &&
+                {!!results.length &&
                     results.map(episode =>
                         <EpisodesCard key={episode.id} props={{episode}}/>
                     )
                 }
             </Box>
-        </Box>
+        </>
     );
 };
 
