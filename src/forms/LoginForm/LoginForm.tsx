@@ -11,7 +11,7 @@ import {FormProvider, useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 import {v4} from "uuid";
 
-import {isAuthWithCredentials} from "../../common/services";
+import {getCredentials, isAuthWithCredentials} from "../../common/services";
 import {IAuthCredentials} from "../MyRegistrationForm/formTypes";
 
 import {FormField} from "./FormField";
@@ -24,7 +24,7 @@ import css from "./index.module.scss";
 const LoginForm_: FC<IProps> = ({props}) => {
     const {formLabel = "Form", animate = true} = props;
     const [maxWidth] = useContainerWidthResponsive({});
-    const {setIsAuth} = useContext(AuthContext);
+    const {setIsAuth, setUserName} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const {...methods} =
@@ -34,7 +34,11 @@ const LoginForm_: FC<IProps> = ({props}) => {
         });
     const onSubmit = (data: IAuthCredentials) => {
         const isAuth = isAuthWithCredentials(data);
-        isAuth ? setIsAuth(true) : navigate("/");
+        if (isAuth) {
+            setIsAuth(true);
+            const {name} = getCredentials();
+            setUserName(name);
+        }
         navigate("/");
     };
 

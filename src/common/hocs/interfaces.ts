@@ -1,6 +1,8 @@
 import {Dispatch, ReactNode, SetStateAction} from "react";
 
 export interface IAuthContext {
+    userName?: string,
+    setUserName: Dispatch<SetStateAction<string>>
     isAuth: boolean,
     isInit: boolean,
     setIsInit: Dispatch<SetStateAction<boolean>>
