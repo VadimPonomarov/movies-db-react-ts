@@ -6,9 +6,9 @@ import Box from "@mui/material/Box";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import Switch from "@mui/material/Switch";
-import {AuthContext} from "common/hocs/authContextProvider";
+import {AuthContext} from "common/hocs/MyAuthContextProvider";
 
-import {MyToolBar} from "./MyToolBar";
+import {MyToolBar} from "./SubComponents/MyToolBar";
 
 const MyAppBar: FC = () => {
     const {isAuth: auth, setIsAuth: setAuth} = useContext(AuthContext);

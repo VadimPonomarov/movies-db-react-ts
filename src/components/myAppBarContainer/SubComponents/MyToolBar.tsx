@@ -7,12 +7,11 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import {AuthContext} from "common/hocs";
 
-import {getCredentials} from "../../common/services";
+import {getCredentials} from "../../../common/services";
+import {iconButtonMenuProps} from "../constants";
+import css from "../myAppBar.module.scss";
 
-import {iconButtonMenuProps} from "./constants";
-import css from "./myAppBar.module.scss";
 import {MyToolbarMenu} from "./MyToolbarMenu";
-import {UseAppToolBar} from "./useAppToolBar";
 
 
 const MyToolBar: FC = () => {

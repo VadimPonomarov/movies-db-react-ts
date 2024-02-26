@@ -3,12 +3,11 @@ import React, {FC} from "react";
 import {Box, Button, ButtonGroup} from "@mui/material";
 import {useLocation} from "react-router-dom";
 
-import {PaginationSlider} from "../../components/PaginationSlider";
+import {PaginationSlider} from "../../../components/PaginationSlider";
+import css from "../index.module.scss";
+import {IBGProps} from "../interfaces";
 
-import css from "./index.module.scss";
-import {IBGProps} from "./interfaces";
-
-const EpisodesButtonGroup: FC<IBGProps> = ({props}) => {
+const MoviesButtonGroup: FC<IBGProps> = ({props}) => {
 
     const {
         info: {
@@ -48,4 +47,4 @@ const EpisodesButtonGroup: FC<IBGProps> = ({props}) => {
     );
 };
 
-export {EpisodesButtonGroup};
+export {MoviesButtonGroup};

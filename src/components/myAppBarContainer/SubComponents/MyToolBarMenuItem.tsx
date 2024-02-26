@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 
 import MenuItem from "@mui/material/MenuItem";
 
-import {IMenuItemProps} from "./interfaces";
+import {IMenuItemProps} from "../interfaces";
 
 const MyToolBarMenuItem: FC<IMenuItemProps> = ({props}) => {
     const {caption, onClick} = props

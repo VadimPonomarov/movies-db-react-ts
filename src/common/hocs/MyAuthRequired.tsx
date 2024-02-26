@@ -4,11 +4,11 @@ import {Navigate, useNavigate} from "react-router-dom";
 
 import {getCredentials} from "../services";
 
-import {AuthContext} from "./authContextProvider";
 import {IProps} from "./interfaces";
+import {AuthContext} from "./MyAuthContextProvider";
 
 
-const AuthRequired: FC<IProps> = ({children}) => {
+const MyAuthRequired: FC<IProps> = ({children}) => {
     const {isAuth} = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -26,4 +26,4 @@ const AuthRequired: FC<IProps> = ({children}) => {
     );
 };
 
-export {AuthRequired};
+export {MyAuthRequired};

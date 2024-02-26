@@ -7,7 +7,7 @@ import {IProps} from './interfaces';
 
 import {AuthContext} from '.';
 
-const ThemeProviderMain: FC<IProps> = ({children}) => {
+const MyThemeProviderMain: FC<IProps> = ({children}) => {
     const {theme} = useContext(AuthContext)
     const themePalette: Theme = createTheme({
         palette: {
@@ -26,4 +26,4 @@ const ThemeProviderMain: FC<IProps> = ({children}) => {
     );
 };
 
-export {ThemeProviderMain};
+export {MyThemeProviderMain};

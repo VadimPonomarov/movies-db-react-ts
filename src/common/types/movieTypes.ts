@@ -43,11 +43,23 @@ export enum MovieCategoryEnum {
 }
 
 export type CategoryType = "now_playing" | "popular" | "top_rated" | "upcoming"
+export type ImageSize = "200" | "300" | "400" | "500" | "original"
+export enum ImageSizeEnum{
+    s200="200",
+    s300="300",
+    s400="400",
+    s500="500",
+    original="original",
+}
 
 export type ListType = (category: MovieCategoryEnum) => CategoryType;
+export type ImageType = (size: ImageSize, uri: string) => string;
 
 export type UrlType = {
-    list: {
+    list?: {
         getList?: ListType
+    },
+    images?: {
+        getImage?: ImageType
     }
 }

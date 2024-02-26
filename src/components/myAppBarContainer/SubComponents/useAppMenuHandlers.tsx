@@ -2,8 +2,8 @@ import React, {Dispatch, useContext} from "react";
 
 import {useNavigate} from "react-router-dom";
 
-import {AuthContext} from "../../common/hocs";
-import {clearCredentials} from "../../common/services";
+import {AuthContext} from "../../../common/hocs";
+import {clearCredentials} from "../../../common/services";
 
 interface IProps {
     setAnchorEl: Dispatch<React.SetStateAction<HTMLElement>>;

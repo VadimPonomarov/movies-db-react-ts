@@ -1,13 +1,13 @@
 import React, {FC, useContext} from "react";
 
 import Menu from "@mui/material/Menu";
-import {AuthContext} from "common/hocs/authContextProvider";
+import {AuthContext} from "common/hocs/MyAuthContextProvider";
 import {useNavigate} from "react-router-dom";
 
-import {clearCredentials} from "../../common/services";
+import {clearCredentials} from "../../../common/services";
+import {menuProps} from "../constants";
+import {IMenuProps as IProps} from "../interfaces";
 
-import {menuProps} from "./constants";
-import {IMenuProps as IProps} from "./interfaces";
 import {MyToolBarMenuItem} from "./MyToolBarMenuItem";
 import {UseAppMenuHandlers} from "./useAppMenuHandlers";
 

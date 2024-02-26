@@ -1,8 +1,8 @@
 import React from "react";
 
 import {MyQueryClientProvider} from "common/hocs";
-import {AuthContextProvider} from "common/hocs/authContextProvider";
-import {ThemeProviderMain} from "common/hocs/themeProviderMain";
+import {MyAuthContextProvider} from "common/hocs/MyAuthContextProvider";
+import {MyThemeProviderMain} from "common/hocs/MyThemeProviderMain";
 import ReactDOM from "react-dom/client";
 import {RouterProvider} from "react-router-dom";
 
@@ -15,11 +15,11 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-    <AuthContextProvider>
-        <ThemeProviderMain>
+    <MyAuthContextProvider>
+        <MyThemeProviderMain>
             <MyQueryClientProvider>
                 <RouterProvider router={Router}/>
             </MyQueryClientProvider>
-        </ThemeProviderMain>
-    </AuthContextProvider>
+        </MyThemeProviderMain>
+    </MyAuthContextProvider>
 );

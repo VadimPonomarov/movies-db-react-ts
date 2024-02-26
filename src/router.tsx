@@ -1,9 +1,9 @@
 import React from "react";
 
-import {AuthRequired} from "common/hocs/authRequired";
+import {MyAuthRequired} from "common/hocs/MyAuthRequired";
 import {LoginPage, RegistrationPage} from "pages";
+import {MoviesPage} from "pages/MoviesPageContainer";
 import {NotFound404} from "pages/NotFound_404";
-import {RickAndMortyEpisodesPage} from "pages/RickAndMortyEpisodesPageContainer";
 import {createBrowserRouter} from "react-router-dom";
 
 import {MainLayout, PrivateLayout, PublicLayout} from "./layouts";
@@ -14,8 +14,8 @@ const Router = createBrowserRouter([
         path: "", element: <MainLayout/>, errorElement: <NotFound404/>,
         children: [
             {
-                element: <AuthRequired><PrivateLayout/></AuthRequired>, children: [
-                    {index: true, element: <RickAndMortyEpisodesPage/>},
+                element: <MyAuthRequired><PrivateLayout/></MyAuthRequired>, children: [
+                    {index: true, element: <MoviesPage/>},
                 ],
 
             },

@@ -2,13 +2,13 @@ import React, {FC, ReactNode, useContext, useEffect} from "react";
 
 import {motion} from "framer-motion";
 
-import {AuthContext} from "./authContextProvider";
+import {AuthContext} from "./MyAuthContextProvider";
 
 interface IProps {
     children: ReactNode;
 }
 
-const InitMotion: FC<IProps> = ({children}) => {
+const MyInitMotion: FC<IProps> = ({children}) => {
     const {isInit, setIsInit} = useContext(AuthContext);
 
     useEffect(() => {
@@ -54,4 +54,4 @@ const InitMotion: FC<IProps> = ({children}) => {
     );
 };
 
-export {InitMotion};
+export {MyInitMotion};

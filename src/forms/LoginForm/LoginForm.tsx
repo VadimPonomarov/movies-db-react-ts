@@ -5,7 +5,7 @@ import {FC, memo, useContext} from "react";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {Box, Button, Container, FormLabel, Paper, Stack} from "@mui/material";
 import {myFormAnimateDefaultProps} from "common/constants/myFormAnimateDefaultProps";
-import {AuthContext} from "common/hocs/authContextProvider";
+import {AuthContext} from "common/hocs/MyAuthContextProvider";
 import {useContainerWidthResponsive} from "common/hooks/useContainerWidthResponsive";
 import {FormProvider, useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";

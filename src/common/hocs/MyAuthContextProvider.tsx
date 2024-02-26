@@ -5,7 +5,7 @@ import {IAuthContext, IProps} from "./interfaces";
 
 const AuthContext = createContext<IAuthContext>(null);
 
-const AuthContextProvider: FC<IProps> = ({children}) => {
+const MyAuthContextProvider: FC<IProps> = ({children}) => {
     const [userName, setUserName] = useState();
     const [isAuth, setIsAuth] = useState(false);
     const [isInit, setIsInit] = useState(true);
@@ -19,4 +19,4 @@ const AuthContextProvider: FC<IProps> = ({children}) => {
     );
 };
 
-export {AuthContext, AuthContextProvider};
+export {AuthContext, MyAuthContextProvider};

@@ -1,5 +1,5 @@
 import {myHttpUrls} from "../constants";
-import {IMovieList, MovieCategoryEnum} from "../types";
+import {ImageSizeEnum, IMovieList, MovieCategoryEnum} from "../types";
 
 import {apiService} from "./apiService";
 

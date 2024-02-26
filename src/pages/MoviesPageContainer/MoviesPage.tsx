@@ -2,27 +2,27 @@ import * as React from "react";
 import {FC} from "react";
 
 import {Box} from "@mui/material";
-import {useAppEpisodesEffect} from "common/hooks/useAppEpisodesEffect";
+import {useAppMoviesEffect} from "common/hooks/useAppMoviesEffect";
 
-import {EpisodesButtonGroup} from "./EpisodesButtonGroup";
-import {EpisodesCard} from "./EpisodesCard";
 import css from "./index.module.scss";
+import {MovieCard} from "./SubComponents/MovieCard";
+import {MoviesButtonGroup} from "./SubComponents/MoviesButtonGroup";
 
-const RickAndMortyEpisodesPage: FC = () => {
+const MoviesPage: FC = () => {
     const {
         info,
         results,
         prevPage,
         nextPage
-    } = useAppEpisodesEffect();
+    } = useAppMoviesEffect();
 
     return (
         <>
-            {info && <EpisodesButtonGroup props={{info, prevPage, nextPage}}/>}
+            {info && <MoviesButtonGroup props={{info, prevPage, nextPage}}/>}
             <Box className={css.Ep__Container}>
                 {!!results.length &&
                     results.map(item =>
-                        <EpisodesCard key={item.id} props={{item}}/>
+                        <MovieCard key={item.id} props={{item}}/>
                     )
                 }
             </Box>
@@ -30,4 +30,4 @@ const RickAndMortyEpisodesPage: FC = () => {
     );
 };
 
-export {RickAndMortyEpisodesPage};
+export {MoviesPage};

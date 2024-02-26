@@ -4,7 +4,7 @@ import {FC, useEffect, useRef, useState} from "react";
 import {Grid, Slider, TextField} from "@mui/material";
 import {motion} from "framer-motion";
 
-import {useAppEpisodesEffect} from "../../common/hooks/useAppEpisodesEffect";
+import {useAppMoviesEffect} from "../../common/hooks/useAppMoviesEffect";
 
 import {mSpan, pSlider, pTextField} from "./constants";
 import {IProps} from "./interfaces";
@@ -13,7 +13,7 @@ import {useAppState} from "./useAppState";
 
 const PaginationSlider: FC<IProps> = React.memo(({props}) => {
     const {step, min, max, current = 1, nextPage} = props;
-    const {query} = useAppEpisodesEffect();
+    const {query} = useAppMoviesEffect();
     const page_ = query.get("page");
 
     const {

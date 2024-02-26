@@ -4,7 +4,7 @@ import {movieService} from "common/services";
 import {IMovieListInfo, IMovieResult, MovieCategoryEnum} from "common/types";
 import {useSearchParams} from "react-router-dom";
 
-const useAppEpisodesEffect = () => {
+const useAppMoviesEffect = () => {
     const [results, setResults] = useState<IMovieResult[]>([]);
     const [info, setInfo] = useState<IMovieListInfo>();
     const [query, setQuery] = useSearchParams({page: "1"});
@@ -29,4 +29,4 @@ const useAppEpisodesEffect = () => {
     return {info, setInfo, results, setResults, query, setQuery, prevPage, nextPage};
 };
 
-export {useAppEpisodesEffect};
+export {useAppMoviesEffect};
