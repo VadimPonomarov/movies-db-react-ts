@@ -61,7 +61,7 @@ const MovieCard: FC<ICardProps> = ({props}) => {
                                     {original_title}
                                 </motion.div>
                             </Typography>
-                            <Typography variant="subtitle1" color="text.secondary" component="div">
+                            <Typography variant="h6" color="text.secondary" component="div">
                                 {title}
                             </Typography>
                         </CardContent>
