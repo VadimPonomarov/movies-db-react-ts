@@ -12,25 +12,17 @@ const RickAndMortyEpisodesPage: FC = () => {
     const {
         info,
         results,
-        query,
-        setQuery
+        prevPage,
+        nextPage
     } = useAppEpisodesEffect();
-
-    const nextPage = () => {
-        setQuery({page: (+query.get("page") + 1).toString()});
-    };
-
-    const prevPage = () => {
-        setQuery({page: (+query.get("page") - 1).toString()});
-    };
 
     return (
         <>
-            <EpisodesButtonGroup props={{info, prevPage, nextPage}}/>
+            {info && <EpisodesButtonGroup props={{info, prevPage, nextPage}}/>}
             <Box className={css.Ep__Container}>
                 {!!results.length &&
-                    results.map(episode =>
-                        <EpisodesCard key={episode.id} props={{episode}}/>
+                    results.map(item =>
+                        <EpisodesCard key={item.id} props={{item}}/>
                     )
                 }
             </Box>

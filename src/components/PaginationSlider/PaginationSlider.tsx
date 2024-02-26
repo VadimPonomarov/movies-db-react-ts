@@ -1,8 +1,10 @@
 import * as React from "react";
-import {FC} from "react";
+import {FC, useEffect, useRef, useState} from "react";
 
 import {Grid, Slider, TextField} from "@mui/material";
 import {motion} from "framer-motion";
+
+import {useAppEpisodesEffect} from "../../common/hooks/useAppEpisodesEffect";
 
 import {mSpan, pSlider, pTextField} from "./constants";
 import {IProps} from "./interfaces";
@@ -10,12 +12,14 @@ import {useAppState} from "./useAppState";
 
 
 const PaginationSlider: FC<IProps> = React.memo(({props}) => {
-    const {step, min, max, current} = props;
+    const {step, min, max, current = 1, nextPage} = props;
+    const {query} = useAppEpisodesEffect();
+    const page_ = query.get("page");
+
     const {
         value,
         handleSliderChange,
         handleInputChange,
-        handleBlur
     } = useAppState(current);
 
     return (
@@ -26,16 +30,19 @@ const PaginationSlider: FC<IProps> = React.memo(({props}) => {
                 <Grid item xs>
                     <Slider
                         {...pSlider}
-                        value={typeof value === "number" ? value : current}
+                        defaultValue={1}
+                        min={1}
+                        max={+max <= 100 ? +max : 100}
+                        value={value}
                         onChange={handleSliderChange}
                     />
                 </Grid>
                 <Grid item>
                     <TextField
                         {...pTextField}
-                        value={current}
+                        value={page_}
                         onChange={handleInputChange}
-                        onBlur={handleBlur}
+                        onBlur={nextPage}
                         inputProps={{
                             step,
                             min,

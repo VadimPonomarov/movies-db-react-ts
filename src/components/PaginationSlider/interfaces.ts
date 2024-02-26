@@ -4,5 +4,6 @@ export interface IProps {
         min: number,
         max: number,
         current: number,
+        nextPage: () => void
     };
 }

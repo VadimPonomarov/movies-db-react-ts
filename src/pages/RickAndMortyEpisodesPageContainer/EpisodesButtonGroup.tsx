@@ -9,8 +9,15 @@ import css from "./index.module.scss";
 import {IBGProps} from "./interfaces";
 
 const EpisodesButtonGroup: FC<IBGProps> = ({props}) => {
-    const {info, prevPage, nextPage} = props;
+
+    const {
+        info: {
+            total_pages,
+            page,
+        }, prevPage, nextPage
+    } = props;
     const location = useLocation();
+
     const searchParams = new URLSearchParams(location.search);
 
     const paramPage = searchParams.get("page");
@@ -19,12 +26,23 @@ const EpisodesButtonGroup: FC<IBGProps> = ({props}) => {
         <Box className={css.Ep__BG_Box}>
             <Box className={css.Ep__BG_Box_Container}>
                 <ButtonGroup size={"small"} color={"secondary"}>
-                    <Button disabled={!Object(info)["prev"]} onClick={prevPage}>Prev</Button>
-                    <Button disabled={!Object(info)["next"]} onClick={nextPage}>Next</Button>
+                    <Button disabled={page === 1} onClick={prevPage}>
+                        Prev
+                    </Button>
+                    <Button disabled={page === total_pages} onClick={nextPage}>
+                        Next
+                    </Button>
                 </ButtonGroup>
             </Box>
             <Box className={css.Ep__BG_Box_Box}>
-                <PaginationSlider props={{min: 1, max: 5, current: paramPage ? +paramPage : 1, step: 1}}/>
+                <PaginationSlider
+                    props={{
+                        min: 1,
+                        max: total_pages,
+                        current: !!page ? +page : 1,
+                        step: 1, nextPage
+                    }}
+                />
             </Box>
         </Box>
     );

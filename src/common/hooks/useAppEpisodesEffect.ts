@@ -1,24 +1,32 @@
 import {useEffect, useState} from "react";
 
-import {episodeService} from "common/services";
-import {IRiCkAndMortyInfo, IRickAndMortyResult} from "common/types";
+import {movieService} from "common/services";
+import {IMovieListInfo, IMovieResult, MovieCategoryEnum} from "common/types";
 import {useSearchParams} from "react-router-dom";
 
 const useAppEpisodesEffect = () => {
-    const [results, setResults] = useState<IRickAndMortyResult[]>([])
-    const [info, setInfo] = useState<IRiCkAndMortyInfo | {}>({})
-    const [query, setQuery] = useSearchParams({page: "1"})
-    const page = parseInt(query.get("page"))
+    const [results, setResults] = useState<IMovieResult[]>([]);
+    const [info, setInfo] = useState<IMovieListInfo>();
+    const [query, setQuery] = useSearchParams({page: "1"});
+    const page = parseInt(query.get("page"));
 
     useEffect(() => {
-        episodeService.getAll(page)
-            .then(({info, results}) => {
-                setResults(results || [])
-                setInfo({prev: info.prev, next: info.next})
-            })
+        movieService.getMovieList(MovieCategoryEnum.popular, page)
+            .then(({results, ...info}) => {
+                setResults(results);
+                setInfo(info);
+            });
     }, [page]);
 
-    return {info, setInfo, results, setResults, query, setQuery}
-}
+    const nextPage = () => {
+        setQuery({page: (+query.get("page") + 1).toString()});
+    };
 
-export {useAppEpisodesEffect}
+    const prevPage = () => {
+        setQuery({page: (+query.get("page") - 1).toString()});
+    };
+
+    return {info, setInfo, results, setResults, query, setQuery, prevPage, nextPage};
+};
+
+export {useAppEpisodesEffect};

@@ -1,7 +1,7 @@
 import React from "react";
 
 import {AuthRequired} from "common/hocs/authRequired";
-import {LoginPage, RegistrationPage, RickAndMortyCharactersPage} from "pages";
+import {LoginPage, RegistrationPage} from "pages";
 import {NotFound404} from "pages/NotFound_404";
 import {RickAndMortyEpisodesPage} from "pages/RickAndMortyEpisodesPageContainer";
 import {createBrowserRouter} from "react-router-dom";
@@ -16,7 +16,6 @@ const Router = createBrowserRouter([
             {
                 element: <AuthRequired><PrivateLayout/></AuthRequired>, children: [
                     {index: true, element: <RickAndMortyEpisodesPage/>},
-                    {path: "/characters/:iDs", element: <RickAndMortyCharactersPage/>},
                 ],
 
             },

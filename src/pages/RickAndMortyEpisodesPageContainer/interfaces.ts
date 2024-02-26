@@ -1,8 +1,8 @@
-import {IRiCkAndMortyInfo, IRickAndMortyResult} from "../../common";
+import {IMovieListInfo, IMovieResult} from "../../common";
 
 export interface IBGProps {
     props: {
-        info: IRiCkAndMortyInfo | {},
+        info: IMovieListInfo,
         prevPage: () => void,
         nextPage: () => void,
     }
@@ -10,6 +10,6 @@ export interface IBGProps {
 
 export interface ICardProps {
     props: {
-        episode: IRickAndMortyResult,
+        item: IMovieResult,
     }
 }
