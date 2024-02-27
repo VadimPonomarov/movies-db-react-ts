@@ -17,7 +17,7 @@ const BadgeWithCircular: FC<IBadgeGrProps> = ({props = {...defaultProps}}) => {
         fab: {fabColor},
         content: {initial_, success_, whileLoading},
         rate
-    } = props;
+    } = {...defaultProps,...props};
 
     const {
         loading,

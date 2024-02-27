@@ -18,7 +18,7 @@
   align-items: center;
   margin: 10px;
   width: 200px;
-  height: 400px;
+  height: 435px;
 }
 
 .Ep__Card_Button {
@@ -31,6 +31,8 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .Ep__Card_Content {

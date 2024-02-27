@@ -8,6 +8,7 @@ import moment from "moment";
 import {useNavigate} from "react-router-dom";
 
 import {BadgeWithCircular} from "../../../components/BadgeWithCircularContainer";
+import {initMotion} from "../constants";
 import css from "../index.module.scss";
 import {ICardProps} from "../interfaces";
 
@@ -39,10 +40,7 @@ const MovieCard: FC<ICardProps> = ({props}) => {
                     className={css.Ep__Card_Button} onClick={() => handleOnClick()}>
                     <Box className={css.Ep__Card_Box}
                          sx={{
-                             backgroundImage: `url(https://image.tmdb.org/t/p/w500${poster_path})`,
-                             backgroundSize: "contain",
-                             backgroundRepeat: "no-repeat",
-                             overflow: "hidden",
+                             backgroundImage: `url(https://image.tmdb.org/t/p/w300${poster_path})`
                          }}
                     >
                         <CardContent
@@ -50,18 +48,16 @@ const MovieCard: FC<ICardProps> = ({props}) => {
                             <Typography
                                 component="div" variant="h5">
                                 <motion.div
-                                    initial={{opacity: 0}}
-                                    whileHover={{
-                                        opacity: .6,
-                                        background: "black",
-                                        overflow: "hidden",
-                                        borderRadius: "5%",
-                                    }}
+                                    {...initMotion}
                                 >
                                     {original_title}
                                 </motion.div>
                             </Typography>
-                            <Typography variant="h6" color="text.secondary" component="div">
+                            <Typography
+                                variant="h6"
+                                color="text.secondary"
+                                component="div"
+                            >
                                 {title}
                             </Typography>
                         </CardContent>
@@ -72,11 +68,17 @@ const MovieCard: FC<ICardProps> = ({props}) => {
                         </Box>
                     </Box>
                 </Button>
-                <BadgeWithCircular/>
+                <BadgeWithCircular
+                    props={{
+                        rate: vote_average * 10,
+                        content: {
+                            initial_: Math.floor(vote_average * 10)
+                        }
+                    }}
+                />
             </Card>
         </MyInitMotion>
-    )
-        ;
+    );
 };
 
 export {MovieCard};

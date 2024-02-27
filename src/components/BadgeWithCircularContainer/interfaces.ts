@@ -18,25 +18,25 @@ export type FuncType = () => string | number | ReactElement<SvgIconComponent>
 export type ContentType = string | number | ReactElement<SvgIconComponent> | FuncType
 
 export interface IBadgeGr {
-    btn: {
-        bgColor: MuiColorType,
-        bgHoverColor: MuiColorType
+    btn?: {
+        bgColor?: MuiColorType,
+        bgHoverColor?: MuiColorType
     },
-    progress: {
-        color: MuiColorType,
-        size: number,
+    progress?: {
+        color?: MuiColorType,
+        size?: number,
     },
-    fab: {
-        fabColor: FabColorType
+    fab?: {
+        fabColor?: FabColorType
     },
-    content: {
-        initial_: ContentType,
-        success_: ContentType,
-        whileLoading: ContentType,
+    content?: {
+        initial_?: ContentType,
+        success_?: ContentType,
+        whileLoading?: ContentType,
     },
-    rate: number
+    rate?: number
 }
 
 export interface IBadgeGrProps {
-    props?: IBadgeGr;
+    props?: Partial<IBadgeGr>;
 }
