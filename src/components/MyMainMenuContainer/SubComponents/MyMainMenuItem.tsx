@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 
-import {Box, Button, Typography} from "@mui/material";
+import {Button, Typography} from "@mui/material";
 import {NavLink} from "react-router-dom";
 
 import {IProps} from "../interfaces";

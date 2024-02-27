@@ -1,5 +1,5 @@
 import * as React from "react";
-import {FC} from "react";
+import {FC, useContext} from "react";
 
 import {Box, Button, Card, CardContent, Typography} from "@mui/material";
 import {MyInitMotion} from "common/hocs/MyInitMotion";
@@ -7,6 +7,8 @@ import {motion} from "framer-motion";
 import moment from "moment";
 import {useNavigate} from "react-router-dom";
 
+import {baseImagesUrl, ImageSizeEnum} from "../../../common";
+import {AuthContext} from "../../../common/hocs";
 import {BadgeWithCircular} from "../../../components/BadgeWithCircularContainer";
 import {initMotion} from "../constants";
 import css from "../index.module.scss";
@@ -27,9 +29,10 @@ const MovieCard: FC<ICardProps> = ({props}) => {
         }
     } = props;
     const navigate = useNavigate();
+    const {backDropImgPath, setBackDropImgPath} = useContext(AuthContext);
 
     const handleOnClick = () => {
-
+        setBackDropImgPath(backdrop_path);
     };
 
 
@@ -37,16 +40,19 @@ const MovieCard: FC<ICardProps> = ({props}) => {
         <MyInitMotion>
             <Card className={css.Ep__Card}>
                 <Button
-                    className={css.Ep__Card_Button} onClick={() => handleOnClick()}>
+                    className={css.Ep__Card_Button}
+                    onDoubleClick={handleOnClick}
+                >
                     <Box className={css.Ep__Card_Box}
                          sx={{
-                             backgroundImage: `url(https://image.tmdb.org/t/p/w300${poster_path})`
+                             backgroundImage: `url(${baseImagesUrl}${ImageSizeEnum.w300}${poster_path})`
                          }}
                     >
                         <CardContent
-                            className={css.Ep__Card_Content}>
+                            className={css.Ep__Card_Content}
+                        >
                             <Typography
-                                component="div" variant="h5">
+                                variant="h5">
                                 <motion.div
                                     {...initMotion}
                                 >
@@ -56,13 +62,18 @@ const MovieCard: FC<ICardProps> = ({props}) => {
                             <Typography
                                 variant="h6"
                                 color="text.secondary"
-                                component="div"
                             >
                                 {title}
                             </Typography>
                         </CardContent>
-                        <Box className={css.Ep__Card_Box_Box}>
-                            <Typography className={css.Ep__Card_Box_Box_T} variant={"caption"}>
+                        <Box
+                            className={css.Ep__Card_Box_Box}
+                        >
+
+                            <Typography
+                                className={css.Ep__Card_Box_Box_T}
+                                variant={"caption"}
+                            >
                                 {moment(release_date).format("DD.MM.YYYY")}
                             </Typography>
                         </Box>
@@ -72,7 +83,18 @@ const MovieCard: FC<ICardProps> = ({props}) => {
                     props={{
                         rate: vote_average * 10,
                         content: {
-                            initial_: Math.floor(vote_average * 10)
+                            initial_:
+                                Math.floor(vote_average * 10),
+                            whileLoading:
+                                <Typography
+                                    variant={"h6"} color={"blue"}
+                                >
+                                    UA
+                                </Typography>,
+                            success_:
+                                <h2>
+                                    {Math.floor(vote_average * 10)}
+                                </h2>
                         }
                     }}
                 />

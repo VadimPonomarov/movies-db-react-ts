@@ -10,7 +10,9 @@ export interface IAuthContext {
     setIsDrawer: Dispatch<SetStateAction<boolean>>
     setIsAuth: Dispatch<SetStateAction<boolean>>
     theme: "light" | "dark",
-    setTheme: Dispatch<SetStateAction<"light" | "dark">>
+    setTheme: Dispatch<SetStateAction<"light" | "dark">>,
+    backDropImgPath?: string,
+    setBackDropImgPath: Dispatch<SetStateAction<string>>
 }
 
 export interface IProps {

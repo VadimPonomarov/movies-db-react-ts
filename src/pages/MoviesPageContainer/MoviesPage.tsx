@@ -4,6 +4,8 @@ import {FC} from "react";
 import {Box} from "@mui/material";
 import {useAppMoviesEffect} from "common/hooks/useAppMoviesEffect";
 
+import {BackDrop} from "../../components/BackDrop";
+
 import css from "./index.module.scss";
 import {MovieCard} from "./SubComponents/MovieCard";
 import {MoviesButtonGroup} from "./SubComponents/MoviesButtonGroup";
@@ -20,12 +22,14 @@ const MoviesPage: FC = () => {
         <>
             {info && <MoviesButtonGroup props={{info, prevPage, nextPage}}/>}
             <Box className={css.Ep__Container}>
+                <BackDrop/>
                 {!!results.length &&
                     results.map(item =>
                         <MovieCard key={item.id} props={{item}}/>
                     )
                 }
             </Box>
+
         </>
     );
 };

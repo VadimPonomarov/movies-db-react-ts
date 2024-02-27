@@ -11,6 +11,7 @@ const MyAuthContextProvider: FC<IProps> = ({children}) => {
     const [isInit, setIsInit] = useState(true);
     const [isDrawer, setIsDrawer] = useState(false);
     const [theme, setTheme] = useState<"light" | "dark">();
+    const [backDropImgPath, setBackDropImgPath] = useState<string>();
     const initContext: IAuthContext = {
         userName,
         setUserName,
@@ -21,7 +22,9 @@ const MyAuthContextProvider: FC<IProps> = ({children}) => {
         isDrawer,
         setIsDrawer,
         isInit,
-        setIsInit
+        setIsInit,
+        backDropImgPath,
+        setBackDropImgPath
     };
 
     return (

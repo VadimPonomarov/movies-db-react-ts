@@ -7,7 +7,7 @@ import {useAppMoviesEffect} from "../../common/hooks/useAppMoviesEffect";
 const useAppState = (initial: number) => {
     const [value, setValue] = React.useState(initial);
     const {setQuery} = useAppMoviesEffect();
-    const flow$ = new BehaviorSubject<{ page: string }>({page: "1"});
+    const flow$ = new BehaviorSubject({page: "1"});
     const handleSliderChange = (event: Event, newValue: number | number[]) => {
         setValue(newValue as number);
         flow$.pipe(debounceTime(500));

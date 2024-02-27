@@ -1,9 +1,11 @@
+import {blue, yellow} from "@mui/material/colors";
+
 import {IBadgeGr} from "./interfaces";
 
 export const defaultProps: Partial<IBadgeGr> = {
     btn: {
-        bgColor: "default",
-        bgHoverColor: "default"
+        bgColor: yellow["500"],
+        bgHoverColor: blue["500"]
     },
     progress: {
         color: "default",

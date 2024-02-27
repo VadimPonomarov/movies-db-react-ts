@@ -39,6 +39,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  z-index: 1004;
   height: 100%;
 }
 
@@ -69,7 +70,8 @@
 
 .Ep__BG_Box_Box {
   position: fixed;
-  top: 47px;
+  z-index: 0;
+  top: 45px;
   width: 20%;
 }
 
