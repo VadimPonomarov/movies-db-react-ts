@@ -8,8 +8,9 @@ import Toolbar from "@mui/material/Toolbar";
 import {AuthContext} from "common/hocs";
 
 import {getCredentials} from "../../../common/services";
+import {MyMainMenu} from "../../MyMainMenuContainer";
 import {iconButtonMenuProps} from "../constants";
-import css from "../myAppBar.module.scss";
+import css from "../index.module.scss";
 
 import {MyToolbarMenu} from "./MyToolbarMenu";
 
@@ -40,6 +41,7 @@ const MyToolBar: FC = () => {
             >
                 <MenuIcon/>
             </IconButton>
+            <MyMainMenu/>
             <Badge
                 invisible={!userName || !isAuth}
                 color="secondary"

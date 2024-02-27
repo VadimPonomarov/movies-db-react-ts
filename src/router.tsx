@@ -4,7 +4,7 @@ import {MyAuthRequired} from "common/hocs/MyAuthRequired";
 import {LoginPage, RegistrationPage} from "pages";
 import {MoviesPage} from "pages/MoviesPageContainer";
 import {NotFound404} from "pages/NotFound_404";
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, Navigate} from "react-router-dom";
 
 import {MainLayout, PrivateLayout, PublicLayout} from "./layouts";
 
@@ -15,7 +15,8 @@ const Router = createBrowserRouter([
         children: [
             {
                 element: <MyAuthRequired><PrivateLayout/></MyAuthRequired>, children: [
-                    {index: true, element: <MoviesPage/>},
+                    {index: true, element: <Navigate to={"/popular"}/>},
+                    {path: "/:category", element: <MoviesPage/>},
                 ],
 
             },

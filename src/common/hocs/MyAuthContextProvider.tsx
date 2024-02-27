@@ -10,10 +10,22 @@ const MyAuthContextProvider: FC<IProps> = ({children}) => {
     const [isAuth, setIsAuth] = useState(false);
     const [isInit, setIsInit] = useState(true);
     const [isDrawer, setIsDrawer] = useState(false);
-    const [theme, setTheme] = useState<"light" | "dark">("light");
+    const [theme, setTheme] = useState<"light" | "dark">();
+    const initContext: IAuthContext = {
+        userName,
+        setUserName,
+        isAuth,
+        setIsAuth,
+        theme,
+        setTheme,
+        isDrawer,
+        setIsDrawer,
+        isInit,
+        setIsInit
+    };
 
     return (
-        <AuthContext.Provider value={{userName, setUserName, isAuth, setIsAuth, theme, setTheme, isDrawer, setIsDrawer, isInit, setIsInit}}>
+        <AuthContext.Provider value={initContext}>
             {children}
         </AuthContext.Provider>
     );

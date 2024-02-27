@@ -1,17 +1,17 @@
-import React, {FC, useContext} from 'react';
+import React, {FC, useContext} from "react";
 
 import {ThemeProvider as MyThemeProvider, createTheme, Theme} from "@mui/material";
-import {myThemeComponents, myThemePalette} from 'common/themes';
+import {myThemeComponents, myThemePalette} from "common/themes";
 
-import {IProps} from './interfaces';
+import {IProps} from "./interfaces";
 
-import {AuthContext} from '.';
+import {AuthContext} from ".";
 
 const MyThemeProviderMain: FC<IProps> = ({children}) => {
-    const {theme} = useContext(AuthContext)
+    const {theme} = useContext(AuthContext);
     const themePalette: Theme = createTheme({
         palette: {
-            mode: theme ? theme : "light",
+            mode: theme ? theme : "dark",
         }
     });
     const myThemeMain: Theme = createTheme(

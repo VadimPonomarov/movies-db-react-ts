@@ -1,6 +1,6 @@
 import {Suspense} from "react";
 
-import {MyAppBar} from "components/myAppBarContainer/MyAppBar";
+import {MyAppBar} from "components/MyAppBarContainer/MyAppBar";
 import {Outlet} from "react-router-dom";
 
 const MainLayout = () => {
