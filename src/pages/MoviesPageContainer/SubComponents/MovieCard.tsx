@@ -1,9 +1,10 @@
 import * as React from "react";
-import {FC, useContext} from "react";
+import {FC, useContext, useState} from "react";
 
 import {Box, Button, Card, CardContent, Typography} from "@mui/material";
 import {MyInitMotion} from "common/hocs/MyInitMotion";
 import {motion} from "framer-motion";
+import {slice} from "lodash";
 import moment from "moment";
 import {useNavigate} from "react-router-dom";
 
@@ -30,6 +31,7 @@ const MovieCard: FC<ICardProps> = ({props}) => {
     } = props;
     const navigate = useNavigate();
     const {backDropImgPath, setBackDropImgPath} = useContext(AuthContext);
+    const [isFullTitle, setIsFullTitle] = useState<boolean>(false);
 
     const handleOnClick = () => {
         setBackDropImgPath(backdrop_path);
@@ -62,8 +64,15 @@ const MovieCard: FC<ICardProps> = ({props}) => {
                             <Typography
                                 variant="h6"
                                 color="text.secondary"
+                                onClick={() => setIsFullTitle(!isFullTitle)}
                             >
-                                {title}
+                                {isFullTitle ?
+                                    title :
+                                    slice(title
+                                        .split(" "), 0, 4)
+                                        .join(" ")
+                                        .trim()
+                                }
                             </Typography>
                         </CardContent>
                         <Box

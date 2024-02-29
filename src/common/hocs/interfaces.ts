@@ -1,5 +1,7 @@
 import {Dispatch, ReactNode, SetStateAction} from "react";
 
+import {type} from "@testing-library/user-event/dist/type";
+
 export interface IAuthContext {
     userName?: string,
     setUserName: Dispatch<SetStateAction<string>>
@@ -13,8 +15,17 @@ export interface IAuthContext {
     setTheme: Dispatch<SetStateAction<"light" | "dark">>,
     backDropImgPath?: string,
     setBackDropImgPath: Dispatch<SetStateAction<string>>
+    searchParams: ISearchParams
+    setSearchParams: Dispatch<SetStateAction<ISearchParams>>
 }
 
 export interface IProps {
     children?: ReactNode;
+}
+
+export type LanguageType = "en-US" | "uk-Uk" | "ru-Ru"
+
+export interface ISearchParams {
+    language?: LanguageType;
+    with_genres?: number[];
 }

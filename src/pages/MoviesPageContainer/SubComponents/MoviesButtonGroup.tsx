@@ -3,7 +3,7 @@ import React, {FC} from "react";
 import {Box, Button, ButtonGroup} from "@mui/material";
 import {useLocation} from "react-router-dom";
 
-import {PaginationSlider} from "../../../components/PaginationSlider";
+import {PaginationSlider} from "../../../components";
 import css from "../index.module.scss";
 import {IBGProps} from "../interfaces";
 
@@ -25,10 +25,16 @@ const MoviesButtonGroup: FC<IBGProps> = ({props}) => {
         <Box className={css.Ep__BG_Box}>
             <Box className={css.Ep__BG_Box_Container}>
                 <ButtonGroup size={"small"} color={"secondary"}>
-                    <Button disabled={page === 1} onClick={prevPage}>
+                    <Button
+                        disabled={page === 1}
+                        onClick={prevPage}
+                    >
                         Prev
                     </Button>
-                    <Button disabled={page === total_pages} onClick={nextPage}>
+                    <Button
+                        disabled={page === total_pages}
+                        onClick={nextPage}
+                    >
                         Next
                     </Button>
                 </ButtonGroup>
@@ -37,9 +43,10 @@ const MoviesButtonGroup: FC<IBGProps> = ({props}) => {
                 <PaginationSlider
                     props={{
                         min: 1,
-                        max: total_pages,
+                        max: 500,
                         current: !!page ? +page : 1,
-                        step: 1, nextPage
+                        step: 1,
+                        nextPage
                     }}
                 />
             </Box>

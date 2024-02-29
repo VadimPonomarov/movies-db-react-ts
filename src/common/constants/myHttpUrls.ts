@@ -1,12 +1,13 @@
-import {ImageSize, ImageSizeEnum, MovieCategoryEnum, UrlType} from "../types";
+import {MovieCategoryEnum, UrlType} from "../types";
 
-const baseUrl = "https://api.themoviedb.org/3/movie/";
-const baseImagesUrl = "https://image.tmdb.org/t/p/";
-
+const baseUrl: string = "https://api.themoviedb.org/3/";
+const baseImagesUrl: string = "https://image.tmdb.org/t/p/";
 
 const myHttpUrls: UrlType = {
     list: {
-        getList: (category: MovieCategoryEnum) => category,
+        getList: (category: MovieCategoryEnum) => `movie/${category}`,
+        getGenreList: "genre/movie/list",
+        discoverList: "discover/movie",
     }
 };
 

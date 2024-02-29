@@ -39,10 +39,10 @@ export enum MovieCategoryEnum {
     now_playing = "now_playing",
     popular = "popular",
     top_rated = "top_rated",
-    upcoming = "upcoming"
+    upcoming = "upcoming",
+    discover = "discover"
 }
 
-export type CategoryType = "now_playing" | "popular" | "top_rated" | "upcoming"
 export type ImageSize = "w200" | "w300" | "w400" | "w500" | "original"
 
 export enum ImageSizeEnum {
@@ -53,11 +53,21 @@ export enum ImageSizeEnum {
     original = "original",
 }
 
-export type ListType = (category: string | MovieCategoryEnum | CategoryType) => CategoryType;
-export type ImageType = (size: ImageSize) => string;
+export type ListType = (category: string | MovieCategoryEnum) => string;
 
 export type UrlType = {
     list?: {
-        getList?: ListType
+        getList?: ListType,
+        getGenreList?: string,
+        discoverList?: string,
     },
+}
+
+export interface IGenre {
+    id: number;
+    name: string;
+}
+
+export interface IGenreListResponse {
+    genres: IGenre[];
 }

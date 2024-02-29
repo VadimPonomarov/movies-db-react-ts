@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import {MovieCategoryEnum} from "../../common";
 
 import {IProps} from "./interfaces";
@@ -6,37 +8,24 @@ type MenuItemType = {
     [key in keyof typeof MovieCategoryEnum]?: IProps
 }
 
-export const myMenuItems: Partial<MenuItemType>[] = [
-    {
-        [MovieCategoryEnum.popular]: {
+const getItem: (item: MovieCategoryEnum) => Partial<MenuItemType> =
+    (item) => ({
+        [`${item}`]: {
             props: {
-                caption: "Popular",
-                uri: `/${MovieCategoryEnum.popular}`
+                caption: item,
+                uri: `/${item}`
             }
         }
-    },
-    {
-        [MovieCategoryEnum.now_playing]: {
-            props: {
-                caption: "Now playing",
-                uri: `/${MovieCategoryEnum.now_playing}`
-            }
-        }
-    },
-    {
-        [MovieCategoryEnum.top_rated]: {
-            props: {
-                caption: "Top rated",
-                uri: `/${MovieCategoryEnum.top_rated}`
-            }
-        }
-    },
-    {
-        [MovieCategoryEnum.upcoming]: {
-            props: {
-                caption: "Upcoming",
-                uri: `/${MovieCategoryEnum.upcoming}`
-            }
-        }
-    },
+    });
+
+const menuItems: MovieCategoryEnum[] = [
+    MovieCategoryEnum.popular,
+    MovieCategoryEnum.now_playing,
+    MovieCategoryEnum.top_rated,
+    MovieCategoryEnum.upcoming,
+    MovieCategoryEnum.discover,
 ];
+export const myMenuItems: Partial<MenuItemType>[] =
+    menuItems.map(
+        item => getItem(item)
+    );
