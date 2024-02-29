@@ -1,0 +1,16 @@
+.BG__Container {
+  display: flex;
+  text-align: center;
+}
+
+.BG__Stack {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.BG__Chip {
+  margin: 5px;
+}
