@@ -1,7 +1,5 @@
 import {Dispatch, ReactNode, SetStateAction} from "react";
 
-import {type} from "@testing-library/user-event/dist/type";
-
 export interface IAuthContext {
     userName?: string,
     setUserName: Dispatch<SetStateAction<string>>

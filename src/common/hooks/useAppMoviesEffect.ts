@@ -5,7 +5,6 @@ import {IMovieListInfo, IMovieResult, MovieCategoryEnum} from "common/types";
 import {useParams, useSearchParams} from "react-router-dom";
 
 import {AuthContext} from "../hocs";
-import {ISearchParams} from "../hocs/interfaces";
 
 const useAppMoviesEffect = () => {
     const [results, setResults] = useState<IMovieResult[]>([]);

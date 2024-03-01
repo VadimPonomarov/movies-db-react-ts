@@ -1,7 +1,6 @@
 import React, {FC} from "react";
 
 import {Box, Button, ButtonGroup} from "@mui/material";
-import {useLocation} from "react-router-dom";
 
 import {PaginationSlider} from "../../../components";
 import css from "../index.module.scss";
@@ -15,11 +14,6 @@ const MoviesButtonGroup: FC<IBGProps> = ({props}) => {
             page,
         }, prevPage, nextPage
     } = props;
-    const location = useLocation();
-
-    const searchParams = new URLSearchParams(location.search);
-
-    const paramPage = searchParams.get("page");
 
     return (
         <Box className={css.Ep__BG_Box}>

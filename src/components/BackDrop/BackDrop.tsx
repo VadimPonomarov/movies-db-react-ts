@@ -2,7 +2,6 @@ import * as React from "react";
 import {FC, useContext} from "react";
 
 import {Box, Modal} from "@mui/material";
-import {motion} from "framer-motion";
 
 import {baseImagesUrl, ImageSizeEnum} from "../../common";
 import {AuthContext} from "../../common/hocs";

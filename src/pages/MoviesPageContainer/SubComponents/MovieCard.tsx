@@ -37,8 +37,13 @@ const MovieCard: FC<ICardProps> = ({props}) => {
         navigate(`${id}`);
     };
 
-    const handleOnDblClick = () => {
+    const handleOriginalTitleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+        e.stopPropagation();
         setBackDropImgPath(backdrop_path);
+    };
+    const handleTitleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+        e.stopPropagation();
+        setIsFullTitle(!isFullTitle);
     };
 
 
@@ -47,7 +52,6 @@ const MovieCard: FC<ICardProps> = ({props}) => {
             <Card className={css.Ep__Card}>
                 <Button
                     className={css.Ep__Card_Button}
-                    onDoubleClick={handleOnDblClick}
                     onClick={handleOnClick}
                 >
                     <Box className={css.Ep__Card_Box}
@@ -60,7 +64,13 @@ const MovieCard: FC<ICardProps> = ({props}) => {
                             className={css.Ep__Card_Content}
                         >
                             <Typography
-                                variant="h5">
+                                variant="h5"
+                                onClick={
+                                    (e) =>
+                                        handleOriginalTitleClick(e)
+                                }
+
+                            >
                                 <motion.div
                                     {...initMotion}
                                 >
@@ -70,7 +80,9 @@ const MovieCard: FC<ICardProps> = ({props}) => {
                             <Typography
                                 variant="subtitle1"
                                 color="text.secondary"
-                                onClick={() => setIsFullTitle(!isFullTitle)}
+                                onClick={
+                                    (e) => handleTitleClick(e)
+                                }
                             >
                                 {isFullTitle ?
                                     title :

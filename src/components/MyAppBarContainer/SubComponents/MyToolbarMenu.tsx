@@ -1,10 +1,7 @@
-import React, {FC, useContext} from "react";
+import React, {FC} from "react";
 
 import Menu from "@mui/material/Menu";
-import {AuthContext} from "common/hocs/MyAuthContextProvider";
-import {useNavigate} from "react-router-dom";
 
-import {clearCredentials} from "../../../common/services";
 import {menuProps} from "../constants";
 import {IMenuProps as IProps} from "../interfaces";
 

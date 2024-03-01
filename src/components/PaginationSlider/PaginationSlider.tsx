@@ -1,5 +1,5 @@
 import * as React from "react";
-import {FC, useEffect, useRef, useState} from "react";
+import {FC,} from "react";
 
 import {Grid, Slider, TextField} from "@mui/material";
 import {motion} from "framer-motion";

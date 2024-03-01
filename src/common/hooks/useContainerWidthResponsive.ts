@@ -1,7 +1,7 @@
 import {useCallback, useEffect, useState} from "react";
 
 import {myFormBreakPoints} from "../constants";
-import {MyBreakPointsType, MyBreakPointType} from "../types";
+import {MyBreakPointType} from "../types";
 
 import {IProps} from "./interfaces";
 

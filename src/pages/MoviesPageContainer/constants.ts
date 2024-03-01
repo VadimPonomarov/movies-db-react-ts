@@ -1,5 +1,3 @@
-import {ReactElement} from "react";
-
 import {MotionProps} from "framer-motion";
 
 export const initMotion: MotionProps = {

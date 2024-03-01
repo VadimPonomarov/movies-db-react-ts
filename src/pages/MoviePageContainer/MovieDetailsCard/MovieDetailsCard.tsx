@@ -56,11 +56,6 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                 backgroundImage: `url(${baseImagesUrl}${ImageSizeEnum.original}${backdrop_path})`,
             }}
         >
-            <Button className={css.MDC__Box_Button} variant={"text"}>
-                <Typography variant={"h3"} onClick={() => navigate(-1)}>
-                    👈
-                </Typography>
-            </Button>
             <Card className={css.MDC__Box_Card}>
                 <Rating
                     className={css.MDC__Rating}
@@ -68,20 +63,31 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                     onChange={handleSetRating}
                     name="customized-10"
                     defaultValue={0}
-                    max={10}
-                />
+                    max={10}/>
                 <Box className={css.MDC__Box_Card_Box}>
-                    <CardContent sx={{flex: "1 0 auto"}}>
+                    <CardContent
+                        sx={{flex: "1 0 auto"}}
+                    >
                         <Stack direction={"row"}>
                             <CardMedia
-                                className={css.MDC__CardContent_Stack_CM}
                                 component="img"
+                                className={css.MDC__CardContent_Stack_CM}
                                 image={`${baseImagesUrl}${ImageSizeEnum.w300}${poster_path}`}
                                 alt="Live from space album cover"
                             />
-                            <Stack direction={"column"} spacing={10}>
-                                <Box sx={{padding: "40px"}}>
-                                    <Typography variant="h4" color="text.secondary" component="div">
+
+                            <Stack
+                                direction={"column"}
+                                spacing={10}
+                            >
+                                <Box
+                                    className={css.MDC__CardContent_Stack_CM_Box}
+                                >
+                                    <Typography
+                                        variant="h4"
+                                        color="text.secondary"
+                                        component="div"
+                                    >
                                         {title} ({moment(release_date).format("YYYY")})
                                     </Typography>
                                     <Typography
@@ -92,31 +98,22 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                                     >
                                         <Box
                                             className={css.MDC__CardContent_Stack_Stack_T_T_Box}
-                                            component={"span"}>
+                                            component={"span"}
+                                        >
                                             {Math.floor(Math.random() * 100)}
                                         </Box>
                                         {moment(release_date).format("DD/MM/YYYY")}
                                         ({original_language.toUpperCase()})
-
-                                        <FiberManualRecordIcon
-                                            sx={{fontSize: "small"}}
-                                        />
+                                        <FiberManualRecordIcon sx={{fontSize: "small"}}/>
                                         {genres.map(item => item.name).join(",")}
-
-                                        <FiberManualRecordIcon
-                                            sx={{fontSize: "small"}}
-                                        />
+                                        <FiberManualRecordIcon sx={{fontSize: "small"}}/>
                                         {moment().hours(runtime / 60).format("H")}h
                                         {moment().hours((runtime % 60) / 60).format("mm")}m
                                     </Typography>
                                 </Box>
-                                <Box sx={{
-                                    padding: "40px",
-                                    maxWidth: "800px",
-                                    display: "flex",
-                                    alignContent: "flex-start",
-                                    flexWrap: "wrap",
-                                }}>
+                                <Box
+                                    className={css.MDC__CardContent_Stack_Box_Box}
+                                >
                                     <Typography
                                         variant="body1"
                                         color="text.secondary"
@@ -126,7 +123,7 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                                     </Typography>
                                 </Box>
                             </Stack>
-                            <Box className={css.MDC__CardContent_Stack_Stack_Box}>
+                            <Box sx={{position: "absolute", left: "380px", top: "160px"}}>
                                 <BadgeWithCircular
                                     props={
                                         {

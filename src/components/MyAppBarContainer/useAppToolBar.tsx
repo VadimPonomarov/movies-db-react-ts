@@ -1,6 +1,5 @@
-import React, {useContext, useEffect, useState} from "react";
+import  {useEffect, useState} from "react";
 
-import {AuthContext} from "../../common/hocs";
 import {getCredentials} from "../../common/services";
 
 const UseAppToolBar = () => {

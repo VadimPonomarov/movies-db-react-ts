@@ -9,11 +9,11 @@
   background-position: center;
 }
 
-.MDC__Box_Button {
+.MDC__Rating {
   position: absolute;
-  left: 30px;
-  top: 200px;
-  max-width: 30px;
+  left: 500px;
+  top: 180px;
+  height: 20px;
 }
 
 .MDC__Box_Card {
@@ -35,6 +35,11 @@
   z-index: 1007
 }
 
+.MDC__CardContent_Stack_CM_Box {
+  padding: 40px;
+}
+
+
 .MDC__CardContent_Stack_Stack_T_T {
   width: 100%;
   display: flex;
@@ -48,17 +53,18 @@
 }
 
 
-.MDC__Rating {
-  position: absolute;
-  left: 500px;
-  top: 180px;
-  height: 20px;
-}
-
 .MDC__CardContent_Stack_Stack_Box {
   position: absolute;
   left: 380px;
   top: 160px;
+}
+
+.MDC__CardContent_Stack_Box_Box {
+  padding: 40px;
+  max-width: 800px;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
 }
 
 

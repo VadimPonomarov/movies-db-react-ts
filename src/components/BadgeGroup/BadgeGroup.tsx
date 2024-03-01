@@ -1,7 +1,7 @@
 import * as React from "react";
 import {FC} from "react";
 
-import {Box, Chip, Container, Stack} from "@mui/material";
+import {Chip, Container, Stack} from "@mui/material";
 import {indexOf} from "lodash";
 
 import css from "./index.module.scss";

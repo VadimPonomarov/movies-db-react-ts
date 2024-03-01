@@ -1,11 +1,10 @@
 import * as React from "react";
-import {FC, memo, useContext} from "react";
+import {FC, memo} from "react";
 
 
 import {yupResolver} from "@hookform/resolvers/yup";
 import {Box, Button, Container, FormLabel, Paper, Stack} from "@mui/material";
 import {myFormAnimateDefaultProps} from "common/constants/myFormAnimateDefaultProps";
-import {AuthContext} from "common/hocs/MyAuthContextProvider";
 import {useContainerWidthResponsive} from "common/hooks/useContainerWidthResponsive";
 import {FormProvider, useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
@@ -23,7 +22,6 @@ import css from "./index.module.scss";
 const MyRegistrationForm_: FC<IProps> = ({props}) => {
     const {formLabel = "Form", animate = true} = props;
     const [maxWidth] = useContainerWidthResponsive({});
-    const {setIsAuth} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const {...methods} =
