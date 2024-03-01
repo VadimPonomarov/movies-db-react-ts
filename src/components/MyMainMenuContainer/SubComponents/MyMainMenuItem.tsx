@@ -1,6 +1,7 @@
 import React, {FC, useContext} from "react";
 
 import {Button, Typography} from "@mui/material";
+import _ from "lodash";
 import {NavLink} from "react-router-dom";
 
 import {MovieCategoryEnum} from "../../../common";
@@ -8,8 +9,7 @@ import {AuthContext} from "../../../common/hocs";
 import {IProps} from "../interfaces";
 
 const MyMainMenuItem: FC<IProps> = ({props}) => {
-    const defaults = {props: {caption: "asd", elementProps: {type: "button"}}};
-    const {caption, uri, elementProps} = {...defaults, ...props};
+    const {caption, uri, elementProps} = props;
     const {searchParams: {with_genres}} = useContext(AuthContext);
 
     return (
@@ -17,11 +17,12 @@ const MyMainMenuItem: FC<IProps> = ({props}) => {
             <NavLink to={uri} {...elementProps} >
                 <Typography variant={"subtitle1"}>
                     {
-                        (caption === MovieCategoryEnum.discover && !!with_genres.length) && caption
+                        (caption === MovieCategoryEnum.discover && !!with_genres.length)
+                        && caption
                     }
                     {
                         caption !== MovieCategoryEnum.discover
-                        && caption
+                        && _.replace(caption, "_", " ")
                     }
                 </Typography>
             </NavLink>

@@ -19,5 +19,5 @@ export const defaultProps: Partial<IBadgeGr> = {
         whileLoading: "",
         success_: "",
     },
-    rate: 75
+    rate: undefined
 };

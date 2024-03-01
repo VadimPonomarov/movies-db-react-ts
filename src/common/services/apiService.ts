@@ -14,7 +14,8 @@ apiService.interceptors.request.use(
         const token = getCredentials().token;
         if (token) {
             config.headers["Authorization"] = `Bearer ${token}`;
-            config.headers["accept"] = "application/json";
+            config.headers["accept"] = "application/json;charset=utf-8";
+            config.headers["Content-Type"] = "application/json;charset=utf-8";
         }
         return config;
     },

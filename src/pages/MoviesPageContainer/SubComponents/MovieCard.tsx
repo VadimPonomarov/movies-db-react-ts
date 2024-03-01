@@ -34,6 +34,10 @@ const MovieCard: FC<ICardProps> = ({props}) => {
     const [isFullTitle, setIsFullTitle] = useState<boolean>(false);
 
     const handleOnClick = () => {
+        navigate(`${id}`);
+    };
+
+    const handleOnDblClick = () => {
         setBackDropImgPath(backdrop_path);
     };
 
@@ -43,11 +47,13 @@ const MovieCard: FC<ICardProps> = ({props}) => {
             <Card className={css.Ep__Card}>
                 <Button
                     className={css.Ep__Card_Button}
-                    onDoubleClick={handleOnClick}
+                    onDoubleClick={handleOnDblClick}
+                    onClick={handleOnClick}
                 >
                     <Box className={css.Ep__Card_Box}
                          sx={{
-                             backgroundImage: `url(${baseImagesUrl}${ImageSizeEnum.w300}${poster_path})`
+                             backgroundImage: `url(${baseImagesUrl}${ImageSizeEnum.w300}${poster_path})`,
+                             overflow: !isFullTitle ? "hidden" : "standart"
                          }}
                     >
                         <CardContent
@@ -62,16 +68,16 @@ const MovieCard: FC<ICardProps> = ({props}) => {
                                 </motion.div>
                             </Typography>
                             <Typography
-                                variant="h6"
+                                variant="subtitle1"
                                 color="text.secondary"
                                 onClick={() => setIsFullTitle(!isFullTitle)}
                             >
                                 {isFullTitle ?
                                     title :
                                     slice(title
-                                        .split(" "), 0, 4)
+                                        .split(" "), 0, 3)
                                         .join(" ")
-                                        .trim()
+                                        .trim() + " ..."
                                 }
                             </Typography>
                         </CardContent>

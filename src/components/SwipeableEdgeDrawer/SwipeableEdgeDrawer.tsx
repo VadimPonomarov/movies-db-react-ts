@@ -4,6 +4,7 @@ import {FC, useContext, useState} from "react";
 import {Global} from "@emotion/react";
 import {Box, Button, Container, CssBaseline, styled, SwipeableDrawer, Typography} from "@mui/material";
 import {grey} from "@mui/material/colors";
+import {useParams} from "react-router-dom";
 
 import {AuthContext} from "../../common/hocs";
 import {BadgeGroup} from "../BadgeGroup";
@@ -33,7 +34,6 @@ const Puller =
 const SwipeableEdgeDrawer: FC<IProps> = (props) => {
     const {window} = props;
     const {isAuth} = useContext(AuthContext);
-
     const [open, setOpen] = useState(false);
 
     const toggleDrawer = (newOpen: boolean) => () => {

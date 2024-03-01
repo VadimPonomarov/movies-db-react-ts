@@ -14,27 +14,27 @@ const BadgeGroup: FC = React.memo(() => {
 
     return (
         <Container className={css.BG__Container}>
-            <Box
+            <Stack
                 className={css.BG__Stack}
-                // direction={"row"}
-                // spacing={1}
+                direction={"row"}
+                spacing={1}
             >
                 {!!genres.length &&
                     genres.map(item =>
-                        <span >
-                            <Chip
-                                key={item.id}
-                                className={css.BG__Chip}
-                                style={{backgroundColor: indexOf(searchParams.with_genres, item.id) >= 0 ? "blue" : ""}}
-                                label={item.name}
-                                variant="outlined"
-                                onClick={() => handleClick(item.id)}
-                                clickable
-                            />
-                        </span>
+                        <Chip
+                            key={item.id}
+                            className={css.BG__Chip}
+                            style={{
+                                backgroundColor: indexOf(searchParams.with_genres, item.id) >= 0 ? "blue" : ""
+                            }}
+                            label={item.name}
+                            variant="outlined"
+                            onClick={() => handleClick(item.id)}
+                            clickable
+                        />
                     )
                 }
-            </Box>
+            </Stack>
         </Container>
     );
 });
