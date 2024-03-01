@@ -10,7 +10,7 @@ import {useNavigate} from "react-router-dom";
 
 import {baseImagesUrl, ImageSizeEnum} from "../../../common";
 import {AuthContext} from "../../../common/hocs";
-import {BadgeWithCircular} from "../../../components/BadgeWithCircularContainer";
+import {BadgeWithCircular} from "../../../components";
 import {initMotion} from "../constants";
 import css from "../index.module.scss";
 import {ICardProps} from "../interfaces";
@@ -24,13 +24,11 @@ const MovieCard: FC<ICardProps> = ({props}) => {
             release_date,
             title,
             original_title,
-            popularity,
             vote_average,
-            vote_count
         }
     } = props;
     const navigate = useNavigate();
-    const {backDropImgPath, setBackDropImgPath} = useContext(AuthContext);
+    const {setBackDropImgPath} = useContext(AuthContext);
     const [isFullTitle, setIsFullTitle] = useState<boolean>(false);
 
     const handleOnClick = () => {

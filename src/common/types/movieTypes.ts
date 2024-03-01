@@ -82,8 +82,8 @@ export interface IMovieListInfo {
 }
 
 export enum MovieCategoryEnum {
-    now_playing = "now_playing",
     popular = "popular",
+    now_playing = "now_playing",
     top_rated = "top_rated",
     upcoming = "upcoming",
     discover = "discover"

@@ -31,6 +31,7 @@ const UseAppMenuHandlers = ({setAnchorEl}: IProps) => {
         clearCredentials();
         setAnchorEl(null);
         setIsAuth(false);
+        navigate("/registration")
     };
 
     return {handleRegister, handleLogin, handleLogout, handleClearStore};

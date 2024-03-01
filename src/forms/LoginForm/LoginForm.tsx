@@ -26,6 +26,7 @@ const LoginForm_: FC<IProps> = ({props}) => {
     const [maxWidth] = useContainerWidthResponsive({});
     const {setIsAuth, setUserName} = useContext(AuthContext);
     const navigate = useNavigate();
+    const {setIsInit} = useContext(AuthContext)
 
     const {...methods} =
         useForm<formInputType | unknown>({
@@ -39,6 +40,7 @@ const LoginForm_: FC<IProps> = ({props}) => {
             const {name} = getCredentials();
             setUserName(name);
         }
+        setIsInit(true)
         navigate("/");
     };
 
