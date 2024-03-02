@@ -2,6 +2,7 @@ import * as React from "react";
 import {FC, SyntheticEvent} from "react";
 
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import StarIcon from "@mui/icons-material/Star";
 import {Box, CardContent, CardMedia, Rating, Stack, Typography} from "@mui/material";
 import moment from "moment";
 
@@ -26,7 +27,6 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
             genres,
             overview,
             runtime,
-
         }
     } = props;
 
@@ -60,7 +60,7 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                             <Box>
                                 <Typography
                                     variant="h3"
-                                    color="text.secondary"
+                                    color="white"
                                     component="div"
                                 >
                                     {title} ({moment(release_date).format("YYYY")})
@@ -68,7 +68,7 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                                 <Typography
                                     className={css.MDC__CardContent_Stack_Stack_T_T}
                                     variant="h6"
-                                    color="text.secondary"
+                                    color="white"
                                     component="div"
                                 >
                                     <Box
@@ -93,8 +93,9 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                                     precision={0.5}
                                     onChange={handleSetRating}
                                     name="customized-10"
-                                    defaultValue={0}
+                                    defaultValue={vote_average}
                                     max={10}
+                                    emptyIcon={<StarIcon className={css.StarIcon}/>}
                                 />
                             </Box>
                             <Box
@@ -102,7 +103,7 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                             >
                                 <Typography
                                     variant="subtitle1"
-                                    color="text.secondary"
+                                    color="white"
                                     component="div"
                                 >
                                     {overview}
