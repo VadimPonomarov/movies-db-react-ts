@@ -25,7 +25,7 @@ const BadgeGroup: FC = React.memo(() => {
                             key={item.id}
                             className={css.BG__Chip}
                             style={{
-                                backgroundColor: indexOf(searchParams.with_genres, item.id) >= 0 ? "blue" : ""
+                                backgroundColor: indexOf(searchParams.with_genres, item.id) >= 0 ? "blue" : "auto"
                             }}
                             label={item.name}
                             variant="outlined"
