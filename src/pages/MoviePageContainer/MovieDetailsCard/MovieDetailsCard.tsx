@@ -44,52 +44,48 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                 backgroundImage: `url(${baseImagesUrl}${ImageSizeEnum.original}${backdrop_path})`,
             }}
         >
-            <Card className={css.MDC__Box_Card}>
-                <Rating
-                    className={css.MDC__Rating}
-                    precision={0.5}
-                    onChange={handleSetRating}
-                    name="customized-10"
-                    defaultValue={0}
-                    max={10}/>
-                <Box className={css.MDC__Box_Card_Box}>
-                    <CardContent
-                        sx={{flex: "1 0 auto"}}
-                    >
-                        <Stack direction={"row"}>
-                            <CardMedia
-                                component="img"
-                                className={css.MDC__CardContent_Stack_CM}
-                                image={`${baseImagesUrl}${ImageSizeEnum.w300}${poster_path}`}
-                                alt="Live from space album cover"
-                            />
-
-                            <Stack
-                                direction={"column"}
-                                spacing={10}
-                            >
-                                <Box
-                                    className={css.MDC__CardContent_Stack_CM_Box}
+            <Box>
+                <Stack
+                    className={css.MDC__Box_Card}
+                    direction={"row"}
+                    spacing={3}
+                >
+                    <CardMedia
+                        className={css.MDC__CardMedia}
+                        component="img"
+                        image={`${baseImagesUrl}${ImageSizeEnum.w300}${poster_path}`}
+                    />
+                    <Rating
+                        className={css.MDC__Rating}
+                        precision={0.5}
+                        onChange={handleSetRating}
+                        name="customized-10"
+                        defaultValue={0}
+                        max={10}
+                    />
+                    <CardContent>
+                        <Stack spacing={20}>
+                            <Box>
+                                <Typography
+                                    variant="h3"
+                                    color="text.secondary"
+                                    component="div"
                                 >
-                                    <Typography
-                                        variant="h4"
-                                        color="text.secondary"
-                                        component="div"
+                                    {title} ({moment(release_date).format("YYYY")})
+                                </Typography>
+                                <Typography
+                                    className={css.MDC__CardContent_Stack_Stack_T_T}
+                                    variant="h6"
+                                    color="text.secondary"
+                                    component="div"
+                                >
+                                    <Box
+                                        className={css.MDC__CardContent_Stack_Stack_T_T_Box}
+                                        component={"span"}
                                     >
-                                        {title} ({moment(release_date).format("YYYY")})
-                                    </Typography>
-                                    <Typography
-                                        className={css.MDC__CardContent_Stack_Stack_T_T}
-                                        variant="h6"
-                                        color="text.secondary"
-                                        component="div"
-                                    >
-                                        <Box
-                                            className={css.MDC__CardContent_Stack_Stack_T_T_Box}
-                                            component={"span"}
-                                        >
-                                            {Math.floor(Math.random() * 100)}
-                                        </Box>
+                                        {Math.floor(Math.random() * 100)}
+                                    </Box>
+                                    <Box>
                                         {moment(release_date).format("DD/MM/YYYY")}
                                         ({original_language.toUpperCase()})
                                         <FiberManualRecordIcon sx={{fontSize: "small"}}/>
@@ -97,42 +93,41 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                                         <FiberManualRecordIcon sx={{fontSize: "small"}}/>
                                         {moment().hours(runtime / 60).format("H")}h
                                         {moment().hours((runtime % 60) / 60).format("mm")}m
-                                    </Typography>
-                                </Box>
-                                <Box
-                                    className={css.MDC__CardContent_Stack_Box_Box}
+
+                                    </Box>
+                                </Typography>
+                            </Box>
+                            <Box
+                                className={css.MDC__CardContent_Stack_Box_Box}
+                            >
+                                <Typography
+                                    variant="subtitle1"
+                                    color="text.secondary"
+                                    component="div"
                                 >
-                                    <Typography
-                                        variant="body1"
-                                        color="text.secondary"
-                                        component="div"
-                                    >
-                                        {overview}
-                                    </Typography>
-                                </Box>
-                            </Stack>
-                            <Box sx={{position: "absolute", left: "380px", top: "160px"}}>
-                                <BadgeWithCircular
-                                    props={
-                                        {
-                                            rate: +vote_average * 10,
-                                            progress: {size: 90},
-                                            content: {
-                                                initial_: `${Math.floor(vote_average * 10)}%`,
-                                                whileLoading: `${Math.floor(vote_average * 10)}%`,
-                                                success_: `${Math.floor(vote_average * 10)}%`,
-
-                                            }
-                                        }
-                                    }
-                                />
-
+                                    {overview}
+                                </Typography>
                             </Box>
                         </Stack>
-
                     </CardContent>
-                </Box>
-            </Card>
+                    <Box sx={{position: "absolute", left: "320px", top: "120px"}}>
+                        <BadgeWithCircular
+                            props={
+                                {
+                                    rate: +vote_average * 10,
+                                    progress: {size: 90},
+                                    content: {
+                                        initial_: `${Math.floor(vote_average * 10)}%`,
+                                        whileLoading: `${Math.floor(vote_average * 10)}%`,
+                                        success_: `${Math.floor(vote_average * 10)}%`,
+
+                                    }
+                                }
+                            }
+                        />
+                    </Box>
+                </Stack>
+            </Box>
         </Box>
 
     );

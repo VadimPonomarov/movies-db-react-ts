@@ -1,7 +1,7 @@
 .MDC__Box_Container {
   display: flex;
   width: 100vw;
-  height: 70vh;
+  height: 77vh;
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
@@ -9,42 +9,23 @@
   background-position: center;
 }
 
-.MDC__Rating {
-  position: absolute;
-  left: 500px;
-  top: 180px;
-  height: 20px;
-}
-
 .MDC__Box_Card {
-  position: relative;
-  width: 80vw;
-  display: flex;
-  opacity: .8;
-}
-
-.MDC__Box_Card_Box {
-  display: flex;
-  flex-direction: row;
-}
-
-.MDC__CardContent_Stack_CM {
-  width: 300px;
   background-color: black;
-  opacity: 1;
-  z-index: 1007
+  position: relative;
+  opacity: .7;
 }
 
-.MDC__CardContent_Stack_CM_Box {
-  padding: 40px;
+.MDC__CardMedia {
+  width: 300px;
 }
 
 
+//
+//
 .MDC__CardContent_Stack_Stack_T_T {
   width: 100%;
   display: flex;
-  gap: 4px;
-  align-items: center
+  gap: 8px;
 }
 
 .MDC__CardContent_Stack_Stack_T_T_Box {
@@ -60,12 +41,17 @@
 }
 
 .MDC__CardContent_Stack_Box_Box {
-  padding: 40px;
   max-width: 800px;
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
 }
 
+.MDC__Rating {
+  position: absolute;
+  left: 420px;
+  top: 150px;
+  height: 20px;
+}
 
 
