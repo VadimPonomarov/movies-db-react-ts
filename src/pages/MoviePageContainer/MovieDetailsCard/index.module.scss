@@ -10,6 +10,9 @@
 }
 
 .MDC__Box_Card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   background-color: black;
   position: relative;
   opacity: .7;
@@ -36,9 +39,8 @@
 }
 
 .MDC__Rating {
-  position: absolute;
-  left: 420px;
-  top: 150px;
+  left: 20px;
+  top: 20px;
   height: 20px;
 }
 

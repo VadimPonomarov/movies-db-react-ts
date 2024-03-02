@@ -2,7 +2,7 @@ import * as React from "react";
 import {FC, SyntheticEvent} from "react";
 
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import {Box, Card, CardContent, CardMedia, Rating, Stack, Typography} from "@mui/material";
+import {Box, CardContent, CardMedia, Rating, Stack, Typography} from "@mui/material";
 import moment from "moment";
 
 import {baseImagesUrl, ImageSizeEnum} from "../../../common";
@@ -54,14 +54,7 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                         component="img"
                         image={`${baseImagesUrl}${ImageSizeEnum.w300}${poster_path}`}
                     />
-                    <Rating
-                        className={css.MDC__Rating}
-                        precision={0.5}
-                        onChange={handleSetRating}
-                        name="customized-10"
-                        defaultValue={0}
-                        max={10}
-                    />
+
                     <CardContent>
                         <Stack spacing={20}>
                             <Box>
@@ -95,6 +88,14 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
 
                                     </Box>
                                 </Typography>
+                                <Rating
+                                    className={css.MDC__Rating}
+                                    precision={0.5}
+                                    onChange={handleSetRating}
+                                    name="customized-10"
+                                    defaultValue={0}
+                                    max={10}
+                                />
                             </Box>
                             <Box
                                 className={css.MDC__CardContent_Stack_Box_Box}
