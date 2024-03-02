@@ -48,7 +48,6 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                 <Stack
                     className={css.MDC__Box_Card}
                     direction={"row"}
-                    spacing={3}
                 >
                     <CardMedia
                         className={css.MDC__CardMedia}
@@ -110,7 +109,7 @@ const MovieDetailsCard: FC<IProps> = ({props}) => {
                             </Box>
                         </Stack>
                     </CardContent>
-                    <Box sx={{position: "absolute", left: "320px", top: "120px"}}>
+                    <Box>
                         <BadgeWithCircular
                             props={
                                 {

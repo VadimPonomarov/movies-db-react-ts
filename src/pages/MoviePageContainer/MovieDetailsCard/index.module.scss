@@ -16,12 +16,9 @@
 }
 
 .MDC__CardMedia {
-  width: 300px;
+  max-width: 300px;
 }
 
-
-//
-//
 .MDC__CardContent_Stack_Stack_T_T {
   width: 100%;
   display: flex;
@@ -33,18 +30,9 @@
   padding: 0 3px;
 }
 
-
-.MDC__CardContent_Stack_Stack_Box {
-  position: absolute;
-  left: 380px;
-  top: 160px;
-}
-
 .MDC__CardContent_Stack_Box_Box {
   max-width: 800px;
   display: flex;
-  align-content: flex-start;
-  flex-wrap: wrap;
 }
 
 .MDC__Rating {
