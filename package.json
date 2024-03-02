@@ -91,7 +91,7 @@
         "off"
       ],
       "import/order": [
-        "error",
+        "off",
         {
           "groups": [
             "builtin",
